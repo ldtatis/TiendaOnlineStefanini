@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Negocio.DTO.ClientesDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <h2>Clientes</h2>
+</div>
+<div class="row float-right">
+    <p>
+        @Html.ActionLink("Nuevo", "Create", "", new { @class = "plus" })
+    </p>
+</div>
+
+<table class="table table-hover table-striped table-light table-bordered">
+    <thead>
+        <tr class="bg-primary">
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+        </tr>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Modificar", "Edit", new { id = item.IdCliente }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdCliente })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

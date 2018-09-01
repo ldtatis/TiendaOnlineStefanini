@@ -1,0 +1,79 @@
+﻿@model Negocio.DTO.ProductoXCategorias
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="row justify-content-center top">
+        <div class="col-md-8 col-12">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h4>Modificar el producto</h4>
+                </div>
+
+                <div class="card-body">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Producto.IdProducto)
+
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Producto.Titulo, htmlAttributes: new { @class = "control-label" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Producto.Titulo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Producto.Titulo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Producto.NumeroProducto, htmlAttributes: new { @class = "control-label" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Producto.NumeroProducto, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Producto.NumeroProducto, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Producto.Precio, htmlAttributes: new { @class = "control-label" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Producto.Precio, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Producto.Precio, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @for (int i = 0; i < Model.Categorias.Count; i++)
+                    {
+                        <div class="col-md-6 col-12">
+                            @Html.CheckBoxFor(modelItem => Model.Categorias[i].Selected)
+                            @Html.DisplayFor(modelItem => Model.Categorias[i].Categoria.NombreCategoria)
+                            @Html.HiddenFor(modelItem => Model.Categorias[i].Categoria.NombreCategoria)
+                            @Html.HiddenFor(modelItem => Model.Categorias[i].Categoria.IdCategoria)
+                        </div>
+                    }
+                    <div class="carg-footer form-group">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <input type="submit" value="Modificar" class="btn btn-success" />
+                                @Html.ActionLink("Volver a la lista", "Index", "", new { @class = "btn btn-info" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

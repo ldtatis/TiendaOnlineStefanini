@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Negocio.DTO.ProductosDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <h2>Productos</h2>
+</div>
+<div class="row float-right">
+    <p>
+        @Html.ActionLink("Nuevo", "Create", "", new { @class = "plus" })
+    </p>
+</div>
+
+<table class="table table-hover table-striped table-light table-bordered">
+    <thead>
+        <tr class="bg-primary">
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Modificar", "Edit", new { id = item.IdProducto }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroProducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

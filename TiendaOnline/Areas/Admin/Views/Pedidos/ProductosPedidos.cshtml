@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Negocio.DTO.ProductosDTO>
+
+@{
+    ViewBag.Title = "ProductosPedidos";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <h2>Productos pedidos</h2>
+</div>
+<div class="row float-right">
+    <p>
+        @Html.ActionLink("Volver a pedidos", "Index", "", new { @class = "btn btn-info" })
+    </p>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+        </tr>
+    }
+
+</table>
