@@ -10,7 +10,15 @@ Public Class BaseController
     Private LogRN As LogRN
     Private MotorBd As MotorDb
     Protected CategoRN As CategoriaRN
+    Protected ClientRN As ClientesRN
+    Protected ProducRN As ProductosRN
+    Protected PedidRN As PedidosRN
+
     Protected oCategoDto As CategoriasDTO
+    Protected oClientDto As ClientesDTO
+    Protected oProducDto As ProductosDTO
+    Protected oPedidosDto As PedidosDTO
+
 
 
     Public Sub New()
@@ -19,8 +27,17 @@ Public Class BaseController
             Negocio.Comunes.Base.MotorBd = MotorBd
 
             oCategoDto = New CategoriasDTO()
+            oClientDto = New ClientesDTO()
+            oProducDto = New ProductosDTO()
+            oPedidosDto = New PedidosDTO()
+
             LogRN = New LogRN()
             CategoRN = New CategoriaRN()
+            ClientRN = New ClientesRN()
+            ProducRN = New ProductosRN()
+            PedidRN = New PedidosRN()
+
+
         Catch OV As StackOverflowException
             Logs.WriteLogDB("Error StackOverflowException en BaseController", OV)
         Catch ex As Exception
