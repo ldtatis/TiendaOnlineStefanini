@@ -9,7 +9,7 @@ namespace ConexionBD.MsSql
     public partial class Log
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdLog { get; set; }
 
         public DateTime Fecha { get; set; }
