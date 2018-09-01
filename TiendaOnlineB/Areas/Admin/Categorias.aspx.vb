@@ -8,7 +8,6 @@ Public Class Categorias
         Dim List As New List(Of CategoriasDTO)
         List = CategoRN.GetCategorias()
 
-        gv.CellPadding = 3
         gv.DataSource = List
         gv.DataBind()
 

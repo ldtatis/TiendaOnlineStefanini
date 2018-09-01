@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="CPHM" runat="server">
     <div class="row justify-content-center">
         <h2>Productos</h2>
@@ -9,8 +10,13 @@
     <div class="row float-right">
         <p>
             <asp:Button Text="Nuevo" runat="server" ID="btnNuevo" CssClass="btn btn-primary plus" OnClick="btnNuevo_Click" />
+
         </p>
     </div>
+    <asp:GridView ID="gvListar" runat="server" AllowSorting="True" AutoGenerateColumns="True" SkinID="gvGeneral">
+    </asp:GridView>
+
+
 </asp:Content>
 
 

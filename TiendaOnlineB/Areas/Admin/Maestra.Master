@@ -4,19 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
 
-        <asp:ContentPlaceHolder ID="CPHM" runat="server">
-        
-        </asp:ContentPlaceHolder>
+    <div class="container" style="margin-top: 2%">
+        <form id="form1" runat="server">
+            <asp:ContentPlaceHolder ID="CPHM" runat="server">
+            </asp:ContentPlaceHolder>
+        </form>
     </div>
-    </form>
 </body>
 </html>
